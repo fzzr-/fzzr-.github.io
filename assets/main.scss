@@ -35,7 +35,8 @@ hr {
 
 footer div.lod-ctrl-vis {
 	transition: linear;
-	transition-property: filter, height;
+	transition-property: filter;
+	// transition-property: filter, height;
 	transition-duration: 200ms;
 
 	width: 100%;
@@ -43,23 +44,23 @@ footer div.lod-ctrl-vis {
 	filter: grayscale(100%) opacity(42%);
 
 	&:hover, &:active, &:focus {
-		height: $LOD_BAR_HEIGHT !important;
+		// height: $LOD_BAR_HEIGHT !important;
 		filter: grayscale(0%) opacity(100%);
 	}
 
 	div.lod-ctrl-vis-bar.on {
 		&::before {
 			content: "LoD";
-			font-size: 0.6em;
-			color: lightcyan;
 			display: block;
+			font-size: 0.6em;
+			font-weight: 600;
+			color: lightcyan;
+			padding-left: 0.6em;
 			@include user_select(none);
 			transition: linear;
 			transition-property: font-size;
 			transition-duration: 200ms;
 		}
-		&:hover::before {
-			font-size: 0.9em;
-		}
+		// &:hover::before { font-size: 0.9em; }
 	}
 }

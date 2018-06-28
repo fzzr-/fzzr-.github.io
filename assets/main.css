@@ -286,7 +286,6 @@ body.lod > input.lod-ctrl#lod-4[type=checkbox]:not(:checked) ~ input.lod-ctrl#lo
 body.lod > input.lod-ctrl#lod-4[type=checkbox]:not(:checked) ~ input.lod-ctrl#lod-5[type=checkbox]:checked ~ * .lod-ctrl-vis-bar.on { width: calc(6 * (100% / 4)); transition: ease-in-out; transition-property: width, background-size; transition-duration: 200ms; background-size: 35px 20px, 100% 100%, calc(100% + (-1 * (100% / 4))) 100%; }
 body.lod > input.lod-ctrl#lod-4[type=checkbox]:not(:checked) ~ input.lod-ctrl#lod-5[type=checkbox]:checked ~ * .lod-ctrl-vis-bar.off { width: calc((4 - 6) * (100% / 4)); }
 
-footer div.lod-ctrl-vis { transition: linear; transition-property: filter, height; transition-duration: 200ms; width: 100%; height: 16px !important; filter: grayscale(100%) opacity(42%); }
-footer div.lod-ctrl-vis:hover, footer div.lod-ctrl-vis:active, footer div.lod-ctrl-vis:focus { height: 20px !important; filter: grayscale(0%) opacity(100%); }
-footer div.lod-ctrl-vis div.lod-ctrl-vis-bar.on::before { content: "LoD"; font-size: 0.6em; color: lightcyan; display: block; user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -ms-touch-select: none; transition: linear; transition-property: font-size; transition-duration: 200ms; }
-footer div.lod-ctrl-vis div.lod-ctrl-vis-bar.on:hover::before { font-size: 0.9em; }
+footer div.lod-ctrl-vis { transition: linear; transition-property: filter; transition-duration: 200ms; width: 100%; height: 16px !important; filter: grayscale(100%) opacity(42%); }
+footer div.lod-ctrl-vis:hover, footer div.lod-ctrl-vis:active, footer div.lod-ctrl-vis:focus { filter: grayscale(0%) opacity(100%); }
+footer div.lod-ctrl-vis div.lod-ctrl-vis-bar.on::before { content: "LoD"; display: block; font-size: 0.6em; font-weight: 600; color: lightcyan; padding-left: 0.6em; user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -ms-touch-select: none; transition: linear; transition-property: font-size; transition-duration: 200ms; }
