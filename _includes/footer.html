@@ -29,7 +29,8 @@
 			<div class="footer-col footer-col-3">
 				<p>{{- site.description | escape -}}</p>
 				{%- if page.lod > 0 -%}
-				<hr/> {%- include lod.html steps=page.lod bar=true script=true -%} {%- endif -%}
+				<!-- <hr/>  -->
+				{%- include lod.html steps=page.lod bar=true script=true -%} {%- endif -%}
 			</div>
 		</div>
 	</div>

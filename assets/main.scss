@@ -39,7 +39,7 @@ footer div.lod-ctrl-vis {
 	transition-duration: 200ms;
 
 	width: 100%;
-	height: #{$LOD_BAR_HEIGHT / 2} !important;
+	height: #{$LOD_BAR_HEIGHT * 0.8} !important;
 	filter: grayscale(100%) opacity(42%);
 
 	&:hover, &:active, &:focus {
@@ -47,12 +47,19 @@ footer div.lod-ctrl-vis {
 		filter: grayscale(0%) opacity(100%);
 	}
 
-	div.lod-ctrl-vis-bar {
-		&.on:hover::before {
+	div.lod-ctrl-vis-bar.on {
+		&::before {
 			content: "LoD";
+			font-size: 0.6em;
 			color: lightcyan;
 			display: block;
 			@include user_select(none);
+			transition: linear;
+			transition-property: font-size;
+			transition-duration: 200ms;
+		}
+		&:hover::before {
+			font-size: 0.9em;
 		}
 	}
 }
