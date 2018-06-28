@@ -1,0 +1,19 @@
+<div class="lod-ctrl-in-article">
+	<nav>
+		<ul>
+			<!-- <li> <a href="#">Another Main Item</a> </li> -->
+			<li class="drop">
+				<a href="#">{{ include.icon }}</a>
+				<div class="dropdown-container">
+					<div class="drop-out">
+						<div class="arrow-triangle"></div>
+						<ul>
+							<li>LoD: {%- include lod.html steps=include.steps bar=true -%} </li>
+							<!-- <li>Another Item</li> -->
+						</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</nav>
+</div>

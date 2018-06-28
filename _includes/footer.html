@@ -1,4 +1,4 @@
-<footer class="site-footer h-card">
+<footer id="footer" class="site-footer h-card">
 	<data class="u-url" href="{{ "/" | relative_url }}"></data>
 
 	<div class="wrapper">
@@ -28,6 +28,8 @@
 
 			<div class="footer-col footer-col-3">
 				<p>{{- site.description | escape -}}</p>
+				{%- if page.lod > 0 -%}
+				<hr/> {%- include lod.html steps=page.lod bar=true script=true -%} {%- endif -%}
 			</div>
 		</div>
 	</div>

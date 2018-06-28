@@ -7,13 +7,15 @@ url: ""
 
 email: a@koz.email
 twitter_username: fizzer
+gitlab_username:  fzzr
 github_username:  fzzr-
 bitbucket_username:  fzzr
 linkedin_username: akozlovskij
 stackoverflow: 829264/alex-ko
 stackcareers: ak
 # # patreon: https://www.patreon.com/fzzr
-vcard: /assets/AlexanderKozlovski.vcf
+vcard: /assets/Alex.Koz.vcf
+cert-ace: /assets/Alex.Koz-ACE.pdf
 
 owner:
   name: Alex Koz.
@@ -26,3 +28,16 @@ theme: minima
 
 timezone: Europe/Moscow
 encoding: utf-8
+
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
+  - lod/
+  - js/
+
+# include:
+#   - js/

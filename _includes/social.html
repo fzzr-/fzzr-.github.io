@@ -1,28 +1,42 @@
 <ul class="social-media-list">
 	{%- if site.facebook_username -%}
 	<li>
-		<a href="https://www.facebook.com/{{ site.facebook_username| cgi_escape | escape }}">
+		<a href="https://www.facebook.com/{{ site.facebook_username | cgi_escape | escape }}">
 			<svg class="svg-icon">
 				<use xlink:href="{{ '/assets/icons.svg#facebook' | relative_url }}"></use>
 			</svg>
 		</a>
 	</li>{%- endif -%} {%- if site.flickr_username -%}
 	<li>
-		<a href="https://www.flickr.com/photos/{{ site.flickr_username| cgi_escape | escape }}">
+		<a href="https://www.flickr.com/photos/{{ site.flickr_username | cgi_escape | escape }}">
 			<svg class="svg-icon">
 				<use xlink:href="{{ '/assets/icons.svg#flickr' | relative_url }}"></use>
 			</svg>
 		</a>
-	</li>{%- endif -%} {%- if site.github_username || site.bitbucket_username -%}
+	</li>{%- endif -%} {%- if site.gitlab_username || site.github_username || site.bitbucket_username -%}
 	<li>
-		{%- if site.github_username -%}
-		<a href="https://github.com/{{ site.github_username| cgi_escape | escape }}">
+		{%- if site.gitlab_username -%}
+		<style>
+			a.gitlab:hover > svg.gitlab.bw,
+			a.gitlab > svg.gitlab.color { display: none; }
+			a.gitlab:hover > svg.gitlab.color { display: inline-block; }
+		</style>
+		<a class="gitlab" href="https://gitlab.com/{{ site.gitlab_username | cgi_escape | escape }}">
+			<svg class="svg-icon gitlab bw">
+				<use xlink:href="{{ '/assets/icons.svg#gitlab-bw' | relative_url }}"></use>
+			</svg>
+			<svg class="svg-icon gitlab color">
+				<use xlink:href="{{ '/assets/icons.svg#gitlab-color' | relative_url }}"></use>
+			</svg>
+		</a>
+		{%- endif -%} {%- if site.github_username -%}
+		<a href="https://github.com/{{ site.github_username | cgi_escape | escape }}">
 			<svg class="svg-icon">
 				<use xlink:href="{{ '/assets/icons.svg#github' | relative_url }}"></use>
 			</svg>
 		</a>
 		{%- endif -%} {%- if site.bitbucket_username -%}
-		<a href="https://bitbucket.org/{{ site.bitbucket_username| cgi_escape | escape }}">
+		<a href="https://bitbucket.org/{{ site.bitbucket_username | cgi_escape | escape }}">
 			<svg class="svg-icon">
 				<use xlink:href="{{ '/assets/icons.svg#bitbucket' | relative_url }}"></use>
 			</svg>
@@ -38,7 +52,7 @@
 			</svg>
 		</a>
 		{%- endif -%} {%- if site.linkedin_username -%}
-		<a href="https://www.linkedin.com/in/{{ site.linkedin_username| cgi_escape | escape }}">
+		<a href="https://www.linkedin.com/in/{{ site.linkedin_username | cgi_escape | escape }}">
 			<svg class="svg-icon">
 				<use xlink:href="{{ '/assets/icons.svg#linkedin' | relative_url }}"></use>
 			</svg>
@@ -48,7 +62,7 @@
 	{%- endif -%} {%- if site.twitter_username || site.vcard -%}
 	<li>
 		{%- if site.twitter_username -%}
-		<a href="https://www.twitter.com/{{ site.twitter_username| cgi_escape | escape }}">
+		<a href="https://www.twitter.com/{{ site.twitter_username | cgi_escape | escape }}">
 			<svg class="svg-icon">
 				<use xlink:href="{{ '/assets/icons.svg#twitter' | relative_url }}"></use>
 			</svg>

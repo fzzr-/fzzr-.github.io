@@ -1,0 +1,310 @@
+
+@function lod_nodes($from:0, $to:3, $pref:'') {
+	$result: ();
+	@for $i from $from through $to {
+		$result: append($result, '#{$pref} lod-#{$from} + *, #{$pref} .lod-#{$from}');
+	}
+	@return $result;
+}
+
+
+// e.g.:
+// <body class="lod lod-1">
+// There we should switch the class of body.
+// @include lod('body.lod', 0, 42);
+//
+@mixin lod($root, $from:0, $to:3) {
+	#{$root} {
+		// &.lod-#{$from} img { display: none; }
+		@for $i from $from through $to {
+			&.lod-#{$i} {
+				#{lod_nodes($i+1, $to)} {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@mixin lod_debug($root, $from:0, $to:3) {
+	#{$root} {
+		@for $i from $from through $to {
+			&.lod-#{$i} {
+				#{lod_nodes($i+1, $to)} {
+					background-color: red;
+					content: 'hidden for LOD #{$i}.';
+				}
+				.lod-#{$i}, lod-#{$i} + * {
+					background-color: green;
+					content: 'current LOD: #{$i}.';
+				}
+			}
+		}
+	}
+}
+
+
+$LOD_BAR_HEIGHT: 20px;
+
+@mixin bar_on_style_background_size($background_width) {
+	background-size: 35px $LOD_BAR_HEIGHT, 100% 100%, #{$background_width} 100%;
+}
+
+@mixin bar_on_style($background_width: 100%) {
+	// TODO: https://stackoverflow.com/a/4572733/829264
+	background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%,
+																					rgba(0,0, 0, .1) 66%, transparent 66%),
+										-webkit-linear-gradient(top, rgba(255, 255, 255, .25), rgba(0, 0, 0, .25)),
+										-webkit-linear-gradient(left, #f44, #FC4, rgb(34, 204, 0));
+	@include bar_on_style_background_size(#{$background_width});
+	border-radius: 2px;
+
+	// transition: background-size 2s ease-in;
+	// -moz-transition: background-size 2s ease-in;
+	// -ms-transition: background-size 2s ease-in;
+	// -o-transition: background-size 2s ease-in;
+	// -webkit-transition: background-size 2s ease-in;
+}
+
+@mixin bar_off_style() {
+	background-color: #eee;
+	border-radius: 2px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+@mixin bar_transition($ease:'ease-in-out', $duration: 200ms) {
+	transition: #{$ease};
+	transition-property: width, background-size;
+	transition-duration: #{$duration};
+}
+
+@mixin user_select($value) {
+	user-select: #{$value};
+	-webkit-user-select: #{$value};
+	-moz-user-select: #{$value};
+	-ms-user-select: #{$value};
+	-ms-touch-select: #{$value};
+}
+
+
+@mixin lod_input_ctrl($root, $ctrl, $bar_cont, $btn, $bar, $on, $off, $from:0, $to:3) {
+	#{$root} {
+		#{$bar_cont} {
+			height: $LOD_BAR_HEIGHT;
+
+			@include bar_off_style();
+			@include user_select(none);
+
+			#{$btn} {
+				width: 100%;
+				top: 0;
+				left: 0;
+				position: absolute;
+				cursor: pointer;
+			}
+
+			#{$bar} {
+				height: 100%;
+				position: relative;
+				display: block;
+
+				&#{$on} {
+					@include bar_on_style(calc(100% * #{$to}));
+					@include bar_transition(cubic-bezier(0.175, 0.885, 0.32, 1.275), 300ms);
+					width: calc(100% / #{$to});
+				}
+
+				&#{$off} {
+					width: calc((#{$to} - (0 + 1)) * (100% / #{$to}));
+					float: right;
+				}
+			}
+		}
+
+
+		@for $i from $from through $to {
+			& > #{$ctrl}#lod-#{$i}[type=checkbox] {
+				display: none;
+			}
+
+			& > #{$ctrl}#lod-#{$i}[type=checkbox]:checked {
+
+				// current enabled:
+				// & ~ #{$off} label[for='lod-#{$i}'], & ~ * #{$off} label[for='lod-#{$i}'] {}
+
+				// prev. enabled:
+				& ~ #{$ctrl}#lod-#{$i+1}[type=checkbox]:checked {
+					// remove next following checked
+					& ~ #{$off} label[for='lod-#{$i+1}'],
+					& ~ * #{$off} label[for='lod-#{$i+1}'] {
+						visibility: hidden;
+					}
+
+					// remove next following checked
+					& ~ #{$on} label[for='lod-#{$i+1}'],
+					& ~ * #{$on} label[for='lod-#{$i+1}'] {
+						visibility: hidden;
+					}
+				}
+
+				// enabled
+				& ~ * #{$on} label[for='lod-#{$i}'] {
+					z-index: #{$i};
+				}
+
+				& ~ * #{$off} label[for='lod-#{$i}'] {
+					z-index: #{$to - $i};
+				}
+			}
+		}
+
+		@for $i from $from through $to {
+			& > #{$ctrl}#lod-#{$i}[type=checkbox]:not(:checked) {
+				& ~ * #{$off} label[for='lod-#{$i}'] {
+					visibility: hidden;
+				}
+				& ~ * #{$off} label[for='lod-#{$i+1}'] {
+					visibility: visible !important;
+				}
+
+				& ~ #{$ctrl}#lod-#{$i+1}[type=checkbox]:checked {
+					// next disabled
+					& ~ * #{$off} label[for='lod-#{$i}'] {
+						display: none;
+					}
+
+					& ~ * #{$on} label[for='lod-#{$i+1}'] {
+						display: none;
+					}
+
+					& ~ * #{$bar}#{$on} {
+						width: calc(#{$i + 2} * (100% / #{$to}));
+						@include bar_transition(ease-in-out);
+						@include bar_on_style_background_size(calc(100% + (#{$to - ($i + 1)} * (100% / #{$to}))));
+					}
+					& ~ * #{$bar}#{$off} {
+						width: calc((#{$to} - #{$i + 2}) * (100% / #{$to}));
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// e.g.:
+// <body class="lod">
+// <a id="lod-0" href="#lod-0">lod-0</a>
+// <a id="lod-1" href="#lod-1">lod-1</a>
+// </body>
+// @include lod_anchors_debug('body.lod', 0, 2);
+//
+@mixin lod_anchors($root, $from:0, $to:3) {
+	#{$root} {
+		@for $i from $from through $to {
+			& > a#lod-#{$i}:focus,
+			& > a#lod-#{$i}:hover,
+			& > a#lod-#{$i}:active,
+			&.lod-#{$i} {
+				#{lod_nodes($i+1, $to)},
+				#{lod_nodes($i+1, $to, '& ~')},
+				#{lod_nodes($i+1, $to, '& ~ *')}, {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@mixin lod_anchors_debug($root, $from:0, $to:3) {
+	#{$root} {
+		@for $i from $from through $to {
+			& > a#lod-#{$i}:focus,
+			& > a#lod-#{$i}:hover,
+			& > a#lod-#{$i}:active,
+			&.lod-#{$i} {
+				#{lod_nodes($i+1, $to)},
+				#{lod_nodes($i+1, $to, '& ~')},
+				#{lod_nodes($i+1, $to, '& ~ *')}, {
+					background-color: red;
+					content: 'hidden for LOD #{$i}.';
+				}
+				.lod-#{$i}, lod-#{$i} + *,
+				& ~ * .lod-#{$i}, & ~ * lod-#{$i} + *, {
+					background-color: green;
+					content: 'current LOD: #{$i}.';
+				}
+			}
+		}
+	}
+}
+
+
+@mixin lod_images_anchors($root, $level, $from:0, $to:3) {
+	#{$root} {
+		&.lod-#{$level} img { display: none }
+
+		@for $i from $from through $to {
+			@if $i < $level {
+				& > a#lod-#{$i}:focus,
+				& > a#lod-#{$i}:hover,
+				& > a#lod-#{$i}:active,
+				&.lod-#{$i} {
+					& ~ * img, & ~ img, { display: none; }
+				}
+			}
+		}
+	}
+}
+
+@mixin lod_anchors_current($root, $from:0, $to:3) {
+	#{$root} {
+		@for $i from $from through $to {
+			& > a#lod-#{$i}:focus,
+			& > a#lod-#{$i}:hover,
+			& > a#lod-#{$i}:active,
+			&.lod-#{$i} {
+				a[href="#lod-#{$i}"],
+				& ~ * a[href="#lod-#{$i}"], {
+					border: 1px solid #b4b4b4;
+					border-radius: 10%;
+				}
+			}
+		}
+	}
+}
+
+
+
+@mixin lod_input($root, $from:0, $to:3) {
+	#{$root} {
+		@for $i from $from through $to {
+			& > input#lod-#{$i}[type=checkbox]:checked ~ * ,
+			& > input#lod-#{$i}[type=checkbox]:checked * {
+				&#{lod_nodes($i+1, $to)} {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@mixin lod_input_debug($root, $from:0, $to:3) {
+	#{$root} {
+		@for $i from $from through $to {
+			& > input#lod-#{$i}[type=checkbox]:checked ~ * ,
+			& > input#lod-#{$i}[type=checkbox]:checked * {
+				&#{lod_nodes($i+1, $to)} {
+					background-color: red;
+					content: 'hidden for LOD #{$i}.';
+				}
+				.lod-#{$i}, lod-#{$i} + *,
+				& ~ * .lod-#{$i}, & ~ * lod-#{$i} + *,
+				&.lod-#{$i}, lod-#{$i} + * {
+					background-color: green;
+					content: 'current LOD: #{$i}.';
+				}
+			}
+		}
+	}
+}

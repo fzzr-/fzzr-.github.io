@@ -1,0 +1,62 @@
+{% if include.ctrl %}
+	{% if include.disabled %}
+	{% assign disabled = include.disabled | split:"," | integer %}
+	{% else %}
+	{% assign disabled = nil %}
+	{% endif %}
+
+	{% if include.selected != nil %}
+	{% assign selected = include.selected %}
+	{% else %}
+	{% assign selected = {{include.steps}} %}
+	{% endif %}
+
+
+	{% for i in (1..include.steps) %}
+	<input class="lod-ctrl"
+	       type="checkbox"
+	       id="lod-{{ i | minus: 1 }}"
+	       name="lod-{{ i | minus: 1 }}"
+
+	       {% if i >= selected %}
+	       checked="true"
+	       {% endif %}
+
+	       {% if i == disabled || i in disabled %}
+	       disabled
+	       {% else %}
+	           {% for d in disabled %}
+	               {% assign D = d | to_integer %}
+	               {% if i == D %}
+	                   disabled
+	               {% endif %}
+	           {% endfor %}
+	       {% endif %}
+	       >
+	{% endfor %}
+{% endif %}
+
+
+{% if include.bar %}
+<div class="lod-ctrl-vis">
+	{% assign kinds = "off,on" | split:"," %}
+	{% for kind in kinds %}
+	<div class="lod-ctrl-vis-bar {{kind}}">
+		{% for i in (1..include.steps) %}
+		<label class="lod-ctrl-vis" for="lod-{{ i | minus: 1 }}">&zwnj;</label>
+		{% endfor %}
+	</div>
+	{% endfor %}
+</div>
+
+
+	{% if include.script %}
+	<script>
+		document.querySelector("footer div.lod-ctrl-vis").onclick = function(e) {
+			// window.location.hash = "#footer";
+			setTimeout(function() { document.querySelector("footer").scrollIntoView(); }, 1);
+			setTimeout(function() { document.querySelector("footer").scrollIntoView(); }, 10);
+		}
+	</script>
+	{% endif %}
+{% endif %}
