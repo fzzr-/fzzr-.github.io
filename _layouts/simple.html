@@ -1,24 +1,9 @@
 ---
 layout: default
-
-lod1: <lod-1></lod-1>
-lod1o: <span class="lod-1">
-lod1c: </span>
-
-lod2: <lod-2></lod-2>
-lod2o: <span class="lod-2">
-lod2c: </span>
-
-lod3: <lod-3></lod-3>
-lod3o: <span class="lod-3">
-lod3c: </span>
 ---
 
 <div class="home">
 	{%- if page.title -%}
-		{%- if page.lod > 0 -%}
-			{%- include lod-ctrl.html steps=page.lod icon="⚙" -%}
-		{%- endif -%}
 		<h1 class="page-heading">{{ page.title }}</h1>
 	{%- endif -%}
 	{{ content }}

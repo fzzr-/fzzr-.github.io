@@ -1,6 +1,6 @@
 title: Alex Koz.'s home page
 description: >-
-  Creating neat things with love.
+  Creating neat things with love and tests.
   No challenge eq. no fun.
 baseurl: ""
 url: ""
@@ -13,9 +13,12 @@ bitbucket_username:  fzzr
 linkedin_username: akozlovskij
 stackoverflow: 829264/alex-ko
 stackcareers: ak
-# # patreon: https://www.patreon.com/fzzr
 vcard: /assets/Alex.Koz.vcf
 cert-ace: /assets/Alex.Koz-ACE.pdf
+
+hire: false
+ocupation: Akropolis
+# ocupation: independent
 
 owner:
   name: Alex Koz.
@@ -23,21 +26,24 @@ owner:
   avatar: https://avatars1.githubusercontent.com/u/888526?v=2&s=460
   position: Snr. Software Engineer
 
-markdown: kramdown
 theme: minima
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  use_coderay: false
+  enable_coderay: false
 
 timezone: Europe/Moscow
 encoding: utf-8
 
-# Exclude these files from your production _site
 exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
   - README.md
   - CNAME
-  - lod/
   - js/
-
-# include:
-#   - js/

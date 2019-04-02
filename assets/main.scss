@@ -1,66 +1,36 @@
 ---
 ---
-
-@import  "minima";
-@import  "lod";
-@import  "nav";
-
+@import "{{ site.theme }}";
 
 hr {
-	display: block;
-	height: 1px;
-	border: 0;
-	border-top: 1px solid #e8e8e8;
-	padding: 0;
-	main & { margin: 2em 0 }
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #e8e8e8;
+  padding: 0;
+
+  main & {
+    margin: 2em 0;
+  }
 }
 
 
-// @include lod('body.lod', 0, 3);
-// @include lod_anchors('body.lod', 0, 4);
-// @include lod_anchors_debug('body.lod', 0, 4);
-@include lod_input('body.lod', 0, 4);  // <--
-// @include lod_input_debug('body.lod', 0, 4);  // <--
-// @include lod_images_anchors('body.lod', 1, 0, 4);
-// @include lod_anchors_current('body.lod', 0, 4);
-@include lod_input_ctrl('body.lod',
-                        'input.lod-ctrl',
-                        'div.lod-ctrl-vis',
-                        'label.lod-ctrl-vis',
-                        '.lod-ctrl-vis-bar',
-                        '.on', '.off', 0, 4);
+// override minima columns:
 
+.footer-col-1 {
+  width: calc(30% - (30px / 2));
+}
 
-// concret case: lod-ctrl in the footer:
+.footer-col-2 {
+  width: calc(70% - (30px / 2));
 
-footer div.lod-ctrl-vis {
-	transition: linear;
-	transition-property: filter;
-	// transition-property: filter, height;
-	transition-duration: 200ms;
-
-	width: 100%;
-	height: #{$LOD_BAR_HEIGHT * 0.8} !important;
-	filter: grayscale(100%) opacity(42%);
-
-	&:hover, &:active, &:focus {
-		// height: $LOD_BAR_HEIGHT !important;
-		filter: grayscale(0%) opacity(100%);
-	}
-
-	div.lod-ctrl-vis-bar.on {
-		&::before {
-			content: "LoD";
-			display: block;
-			font-size: 0.6em;
-			font-weight: 600;
-			color: lightcyan;
-			padding-left: 0.6em;
-			@include user_select(none);
-			transition: linear;
-			transition-property: font-size;
-			transition-duration: 200ms;
-		}
-		// &:hover::before { font-size: 0.9em; }
-	}
+  > p {
+    float: right;
+  }
+}
+@media screen and (max-width: 800px) {
+  .footer-col-1,
+  .footer-col-2 {
+    width: calc(50% - (30px / 2));
+  }
 }

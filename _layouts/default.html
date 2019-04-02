@@ -3,11 +3,7 @@
 
 {%- include head.html -%}
 
-<body class="lod">
-	{%- if page.lod > 0 -%}
-		{%- include lod.html steps=page.lod ctrl=true disabled=page.lod selected=page.lod -%}
-	{%- endif -%}
-
+<body>
 	<main class="page-content" aria-label="Content">
 		<div class="wrapper">
 			{{ content }}

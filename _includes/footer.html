@@ -1,36 +1,12 @@
 <footer id="footer" class="site-footer h-card">
 	<data class="u-url" href="{{ "/" | relative_url }}"></data>
-
 	<div class="wrapper">
-		<h2 class="footer-heading">{{ site.title | escape }}</h2>
-
 		<div class="footer-col-wrapper">
 			<div class="footer-col footer-col-1">
-				<ul class="contact-list">
-					<li class="p-name">
-						{%- if site.owner.fullname -%} {{ site.owner.fullname | escape }} {%- else -%} {{ site.owner.name | escape }} {%- endif -%}
-					</li>
-					{%- if site.email -%}
-					<li>
-						<a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a>
-					</li>
-					{%- endif -%} {%- if site.vcard -%}
-					<li>
-						<a href="{{ site.vcard | relative_url }}">vcard</a>
-					</li>
-					{%- endif -%}
-				</ul>
+				{%- include social-inline.html -%}
 			</div>
-
 			<div class="footer-col footer-col-2">
-				{%- include social.html -%}
-			</div>
-
-			<div class="footer-col footer-col-3">
 				<p>{{- site.description | escape -}}</p>
-				{%- if page.lod > 0 -%}
-				<!-- <hr/>  -->
-				{%- include lod.html steps=page.lod bar=true script=true -%} {%- endif -%}
 			</div>
 		</div>
 	</div>

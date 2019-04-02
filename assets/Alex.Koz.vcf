@@ -1,42 +1,24 @@
 BEGIN:VCARD
 VERSION:3.0
-PRODID:-//Apple Inc.//Mac OS X 10.10.5//EN
-N:Kozlovskij;Alexander;;;
-FN:Alexander Kozlovskij
+PRODID:-//Apple Inc.//Mac OS X 10.12.6//EN
+N:Koz.;Alex;;;
+FN:Alexander V. Kozlovski
 NICKNAME:fzzr
-X-PHONETIC-FIRST-NAME:Александр
-X-PHONETIC-LAST-NAME:Козловский
-ORG:Unknown Indie Gamedev Team;
-TITLE:Snr. Software Engineer
-NOTE:Rust, Haxe & Flash Ninja
-
-EMAIL;type=INTERNET;type=HOME;type=pref:a@koz.email
-
-TEL;type=CELL;type=VOICE;type=pref:+7 (915) 363-88-13
-TEL;type=CELL;type=VOICE;type=pref:+7 (963) 551-32-63
-
-X-SOCIALPROFILE;type=linkedin:http://www.linkedin.com/in/akozlovskij
-X-SOCIALPROFILE;type=twitter:http://twitter.com/FIZZER
-item2.URL:https://Kozlovskij.ru
-item2.X-ABLabel:_$!<HomePage>!$_
-item3.URL:https://stackoverflow.com/users/829264/alex-ko
-item3.X-ABLabel:Stackoverflow
-item4.URL:https://www.linkedin.com/in/akozlovskij
-item4.X-ABLabel:LinkedIn
-item5.URL:https://twitter.com/FIZZER
-item5.X-ABLabel:Twitter
-item6.URL:https://github.com/fzzr-
-item6.X-ABLabel:GitHub
-item7.URL:https://bitbucket.org/fzzr
-item7.X-ABLabel:Bitbucket
-
-BDAY:1985-08-08
-
-item8.X-AIM;type=pref:fzzzr
-item8.X-ABLabel:Telegram
-IMPP;X-SERVICE-TYPE=Skype;type=HOME:skype:a.kozlovskij
-IMPP;X-SERVICE-TYPE=GoogleTalk;type=HOME:xmpp:a@koz.email
-
+X-PHONETIC-FIRST-NAME:Alexander
+X-PHONETIC-LAST-NAME:Kozlovski
+ORG:Akropolis;
+TITLE:R&D in Blockchain & Software
+EMAIL;type=INTERNET:a@koz.email
+X-SOCIALPROFILE;type=Ethereum:boozook.eth
+X-SOCIALPROFILE;type=twitter:https://twitter.com/FIZZER
+X-SOCIALPROFILE;type=Telegram:fzzzr
+IMPP;X-SERVICE-TYPE=Telegram;type=HOME;type=pref:Telegram:fzzzr
+URL;type=HOME:https://kozlovskij.ru
+item1.URL:https://t.me/fzzzr
+item1.X-ABLabel:Telegram
+item2.URL:https://stackoverflow.com/story/ak
+item2.X-ABLabel:Stackoverflow story
+URL;type=WORK:https://akropolis.io
 PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQEASABIAAD/4QBARXhpZgAATU0AKgAA
  AAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAABwaADAAQAAAABAAABwQAAAAD/7QA4UG
  hvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/+Ib
@@ -912,7 +894,7 @@ PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQEASABIAAD/4QBARXhpZgAATU0AKgAA
  sC1+5F/nvW/B/yz+o/9DFZm1M2LPt/uNXuXw9/49bv6r/OvDbPt/uNXuXw9/49bv6r/OspFo/X
  /wDYZ/5CMn/XA/8Aouv09H3f+BV+YX7DP/IRk/64H/0XX6ej7v8AwKnAWJJP4R+FOpv8I/CnVv
  I5Qooopgf/2Q==
-CATEGORIES:Developers,Rust,Haxe,Flash,Python,ObjC++
-X-ABUID:A5684CD8-229F-4A62-A930-1C6E2749A82B
 com/players/G:280464721
+CATEGORIES:Developers,Rust,Akropolis
+X-ABUID:AD3A3DC6-7CD3-4A29-999D-17273E3C2279
 END:VCARD
