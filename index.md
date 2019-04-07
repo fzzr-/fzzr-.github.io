@@ -8,14 +8,14 @@ layout: simple
 
 ## About
 
-Software Engineer. Last time I mostly write on following languages: __Rust__, Haxe, Python, Java and Objective-C++, but they are just instruments - my job is a work on logic, algorithms, graphics and data using any languages.
+Software Engineer. During past five years I was mostly writing in the following languages: __Rust__, Haxe, Python, Java, Obj-C++, Swift and Solidity, but they are just instruments - my job is a work on logic, algorithms, graphics and data using any languages.
 
 I have more than fifteen years of real experience.
 I started as "Flash/Actionscript Engineer" and worked for many companies such as SmartGames, [Dulton Media][], Games.Mail.ru, Leo Burnett, Rambler, [Clickberry][] and other companies with various projects.<br/>
 [Certified expert (<abbr title="Adobe Certified Expert">ACE</abbr>) in Flex 4.x/AS3 since 2012][certificate].
 
 
-Creating software & games since 2000. Software Engineer, Consultant, Game Developer & reverse-engineering enthusiast. <abbr title="Open Source Software">OSS</abbr> enthusiast, active contributor of DDG, Haxe & a little bit Ethereum. Fanatic optimisation of any processes. I'm need determinism in all. As a hobby I'm creating cross-platform reincarnations (remakes) of great wonderful old games.
+Creating software & games since 2000. Software Engineer, Consultant, Game Developer & reverse-engineering enthusiast. <abbr title="Open Source Software">OSS</abbr> enthusiast, contributor of DDG, Haxe & a little bit Ethereum. Fanatic optimisation of any processes. I'm need determinism in all. As a hobby I'm creating cross-platform reincarnations (remakes) of great wonderful old games.
 Love my family, inline skating, bowling, carting, ping pong, chess, tons of ice cream, robots, books, macintosh, demoscene, shaders, wisdom and clear usability.
 
 
@@ -39,7 +39,7 @@ Now I am in [Rust Russian Community][rustycrate] committee.
 
 ### Gamedev
 
-Just for fun & knowledge <abbr title="reverse engineering">reversing</abbr> favorite cool old games (before 2000) and making remakes - crossplatform rebirth. _Mostly for private usage._
+Just for fun & knowledge <abbr title="reverse engineering">reversing</abbr> favorite cool old games (before 2000) and making remakes - crossplatform rebirth. _Mostly for private usage, apparently._
 
 First of all, in the past developers put their hearts to the old games and treated them as an object of art.
 In these games there is always a story, humor, they are fun, interesting and surprising and honest with the player, unlike most modern profit-centered games. Such games must teach our children!

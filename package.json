@@ -1,0 +1,13 @@
+{
+	"name": "opt-css-jekyll",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"build-opt": "jekyll build --safe && node build.js"
+	},
+	"dependencies": {
+		"csso": "^3.5.1",
+		"glob": "^7.1.3",
+		"uncss": "^0.16.2"
+	}
+}

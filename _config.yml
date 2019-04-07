@@ -47,3 +47,6 @@ exclude:
   - README.md
   - CNAME
   - js/
+  - node_modules
+  - package.json
+  - build.*
