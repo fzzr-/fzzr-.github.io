@@ -11,7 +11,7 @@ layout: simple
 Software Engineer. During past five years I was mostly writing in the following languages: __Rust__, Haxe, Python, Java, Obj-C++, Swift and Solidity, but they are just instruments - my job is a work on logic, algorithms, graphics and data using any languages.
 
 I have more than fifteen years of real experience.
-I started as "Flash/Actionscript Engineer" and worked for many companies such as SmartGames, [Dulton Media][], Games.Mail.ru, Leo Burnett, Rambler, [Clickberry][] and other companies with various projects.<br/>
+I started as "Flash/Actionscript Engineer" and worked for many companies such as SmartGames, [Dulton Media][]([ЯTV][]), Games.Mail.ru, Leo Burnett, Rambler, [Clickberry][] and other companies with various projects.<br/>
 [Certified expert (<abbr title="Adobe Certified Expert">ACE</abbr>) in Flex 4.x/AS3 since 2012][certificate].
 
 
@@ -81,7 +81,7 @@ Live in Moscow, Russia. Speak English & Russian.
 <br/>
 
 
-Check out my [CV][] or [DevStory][] on the <abbr title="Stackoverflow">SO</abbr>.
+Check out my (quasi)[CV][] or [DevStory][] on the <abbr title="Stackoverflow">SO</abbr>.
 
 [CV]: https://stackoverflow.com/cv/{{ site.stackcareers| cgi_escape | escape }}
 [DevStory]: https://stackoverflow.com/story/{{ site.stackcareers| cgi_escape | escape }}
@@ -106,8 +106,9 @@ Feel free to contact me.
 [IDA]: https://www.hex-rays.com/products/ida/
 [OllyDbg]: http://ollydbg.de
 
-[Clickberry]: http://clickberry.tv
-[Dulton Media]: http://dultonmedia.com
+[Clickberry]: https://web.archive.org/web/20160725011855/http://clickberry.tv/#/about
+[Dulton Media]: https://web.archive.org/web/20140321030514/http://dultonmedia.com/
+[ЯTV]: https://web.archive.org/web/20140102051534/http://yatv.ru/
 
 
 [email]: mailto:{{ site.email }} "email / im"
